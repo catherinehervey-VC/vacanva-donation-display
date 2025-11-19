@@ -2,50 +2,47 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Donation Total</title>
 
   <style>
     body {
       margin: 0;
       padding: 0;
       background: transparent;
-      font-family: "Font Name", system-ui, -responder -8y -2ens-ui{ine-isaErapsFsfamily: "Loginw-for", sans-serif ;color:#333;    }
-    .donation-wrapper {
-      width: 100%;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #333;
       display: flex;
       justify-content: center;
-      padding-top: 20px;
+      align-items: center;
     }
+
     .donation-card {
       background: #ffffff;
       border-radius: 18px;
-      padding: 28x 34px;
+      padding: 28px 34px;
       text-align: center;
-      box-shadow: 0 10px 24px rgba(0 ,0 0,0.08);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
       border: 1px solid #ececec;
-      max-width: 450px;
-      min-width: 320px;
-      transition: all 0.3s ease;
+      width: 100%;
+      max-width: 500px;
     }
-    .donation-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 16px 30px rgba(0 ,0 0,0.10);
-    }
+
     .donation-label {
       font-size: 0.92rem;
       letter-spacing: 0.6px;
-      color: #7A15AC;
+      color: #7A1CAC;
       font-weight: 600;
       text-transform: uppercase;
-      margin-bottom: 10px;
+      margin-bottom: 14px;
     }
+
     .donation-total {
-      font-size: 2.8rem;
+      font-size: 3rem;
       font-weight: 700;
       color: #1e1e1e;
       margin-bottom: 8px;
       line-height: 1.1;
     }
+
     .donation-sub {
       font-size: 0.85rem;
       color: #999;
@@ -55,31 +52,14 @@
 
 <body>
 
-  <div class="donation-wrapper">
-    <div class="donation-card">
-      <div class="donation-label">Total Raised</div>
-      <div id="donationTotal" class="donation-total">$ {{2.sum}}</div>
-      <div class="donation-sub">Updated automatically</div>
-    </div>
+  <div class="donation-card">
+    <div class="donation-label">Total Raised</div>
+
+    <!-- Make will insert the formatted number here -->
+    <div class="donation-total">$ 134568.89</div>
+
+    <div class="donation-sub">Updated automatically</div>
   </div>
-
-  <script>
-    const rawNumber = {{2.sum}};
-    const element = document.getElementById("donationTotal");
-
-    let start = performance.now();
-    let duration = 900;
-
-    function animate(timestamp) {
-      let progress = Math.min(((timestamp - start) / duration), 1);
-      let value = Math.floor(progress * rawNumber);
-      element.textContent = '$' + value.toLocaleString('en-US');
-
-      if (progress < 1) requestAnimation(animate);
-    }
-
-    requestAnimation(animate);
-  </script>
 
 </body>
 </html>
