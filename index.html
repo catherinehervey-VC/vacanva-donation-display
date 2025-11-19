@@ -7,7 +7,7 @@
     body {
       margin: 0;
       padding: 40px 0;
-      background: transparent; /* TRANSPARENT BACKGROUND */
+      background: transparent;
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       display: flex;
       justify-content: center;
@@ -19,7 +19,7 @@
       display: flex;
       justify-content: center;
       padding: 0 20px;
-      background: transparent; /* also transparent */
+      background: transparent;
     }
 
     .donation-card {
@@ -30,7 +30,7 @@
       max-width: 580px;
       width: 100%;
       box-shadow: 0 16px 32px rgba(0,0,0,0.08);
-      border: 2px solid #d4ac37; /* gold border */
+      border: 2px solid #d4ac37;
     }
 
     .donation-label {
@@ -48,11 +48,38 @@
       color: #000000;
       margin-bottom: 16px;
       line-height: 1.1;
+      word-wrap: break-word;
     }
 
     .donation-sub {
       font-size: 1rem;
       color: #5c5c5c;
+    }
+
+    /* ⭐ MOBILE RESPONSIVE RULES */
+    @media (max-width: 480px) {
+      body {
+        padding: 20px 0;
+      }
+
+      .donation-card {
+        padding: 26px 24px; /* reduce padding on small screens */
+        border-radius: 20px;
+      }
+
+      .donation-label {
+        font-size: 0.85rem;
+        margin-bottom: 12px;
+      }
+
+      .donation-total {
+        font-size: 2.6rem; /* scale the big number down */
+        margin-bottom: 14px;
+      }
+
+      .donation-sub {
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
