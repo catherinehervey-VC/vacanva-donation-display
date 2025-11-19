@@ -1,94 +1,85 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
+  <title>Donation Total</title>
+
   <style>
     body {
       margin: 0;
       padding: 0;
       background: transparent;
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: #3a3a3a;
-    }
-
+      font-family: "Font Name", system-ui, -responder -8y -2ens-ui{ine-isaErapsFsfamily: "Loginw-for", sans-serif ;color:#333;    }
     .donation-wrapper {
       width: 100%;
       display: flex;
       justify-content: center;
+      padding-top: 20px;
     }
-
     .donation-card {
       background: #ffffff;
       border-radius: 18px;
-      padding: 26px 32px;
+      padding: 28x 34px;
       text-align: center;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
-      border: 1px solid #e9e9e9;
-      max-width: 440px;
+      box-shadow: 0 10px 24px rgba(0 ,0 0,0.08);
+      border: 1px solid #ececec;
+      max-width: 450px;
+      min-width: 320px;
       transition: all 0.3s ease;
-      margin-top: 20px;
     }
-
     .donation-card:hover {
       transform: translateY(-2px);
-      box-shadow: 0 16px 30px rgba(0,0,0,0.10);
+      box-shadow: 0 16px 30px rgba(0 ,0 0,0.10);
     }
-
     .donation-label {
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       letter-spacing: 0.6px;
-      color: #7A1CAC;
+      color: #7A15AC;
       font-weight: 600;
       text-transform: uppercase;
       margin-bottom: 10px;
     }
-
     .donation-total {
-      font-size: 2.6rem;
+      font-size: 2.8rem;
       font-weight: 700;
-      color: #2A2A2A;
-      margin-bottom: 6px;
+      color: #1e1e1e;
+      margin-bottom: 8px;
       line-height: 1.1;
     }
-
     .donation-sub {
-      font-size: 0.87rem;
+      font-size: 0.85rem;
       color: #999;
     }
   </style>
 </head>
 
 <body>
+
   <div class="donation-wrapper">
     <div class="donation-card">
       <div class="donation-label">Total Raised</div>
-      <div id="donationTotal" class="donation-total">$0</div>
+      <div id="donationTotal" class="donation-total">$ {{2.sum}}</div>
       <div class="donation-sub">Updated automatically</div>
     </div>
   </div>
 
   <script>
-    // Raw number will be inserted by Make (as plain text).
-    const rawNumber = TOTAL_GOES_HERE; // Make will overwrite this placeholder.
+    const rawNumber = {{2.sum}};
+    const element = document.getElementById("donationTotal");
 
-    // Format number with commas
-    const formatted = Number(rawNumber).toLocaleString("en-US");
+    let start = performance.now();
+    let duration = 900;
 
-    // Animate count-up
-    const el = document.getElementById("donationTotal");
-    let current = 0;
-    const duration = 900;
-    const start = performance.now();
+    function animate(timestamp) {
+      let progress = Math.min(((timestamp - start) / duration), 1);
+      let value = Math.floor(progress * rawNumber);
+      element.textContent = '$' + value.toLocaleString('en-US');
 
-    function animateNumber(timestamp) {
-      const progress = Math.min((timestamp - start) / duration, 1);
-      const value = Math.floor(progress * rawNumber);
-      el.textContent = "$" + value.toLocaleString("en-US");
-
-      if (progress < 1) requestAnimationFrame(animateNumber);
+      if (progress < 1) requestAnimation(animate);
     }
 
-    requestAnimationFrame(animateNumber);
+    requestAnimation(animate);
   </script>
+
 </body>
 </html>
