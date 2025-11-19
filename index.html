@@ -2,70 +2,77 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-
+  
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background: transparent;
+      padding: 40px 0;
+      background: #f8f7f4; /* soft warm neutral */
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: #333;
       display: flex;
       justify-content: center;
       align-items: center;
     }
 
+    .donation-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 0 20px;
+    }
+
     .donation-card {
       background: #ffffff;
-      border-radius: 18px;
-      padding: 28px 34px;
+      border-radius: 24px;
+      padding: 40px 50px;
       text-align: center;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
-      border: 1px solid #ececec;
+      max-width: 580px;
       width: 100%;
-      max-width: 500px;
+      box-shadow: 0 16px 32px rgba(0,0,0,0.08);
+      border: 2px solid #d4ac37; /* gold border */
     }
 
     .donation-label {
-      font-size: 0.95rem;
-      letter-spacing: 0.6px;
-      color: #7A1CAC;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      color: #000000; /* black */
       font-weight: 700;
       text-transform: uppercase;
-      margin-bottom: 14px;
+      margin-bottom: 18px;
     }
 
     .donation-total {
-      font-size: 3.4rem;        /* larger */
-      font-weight: 900;         /* bolder */
-      color: #1e1e1e;
-      margin-bottom: 10px;
+      font-size: 4rem;
+      font-weight: 800;
+      color: #000000; /* black */
+      margin-bottom: 16px;
       line-height: 1.1;
     }
 
     .donation-sub {
-      font-size: 0.85rem;
-      color: #999;
+      font-size: 1rem;
+      color: #5c5c5c;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="donation-card">
-    <div class="donation-label">Total Raised</div>
+  <div class="donation-wrapper">
+    <div class="donation-card">
+      <div class="donation-label">Total Raised</div>
 
-    <!-- Make inserts the raw number here -->
-    <div id="donationTotal" class="donation-total">134568.89</div>
+      <!-- Make inserts unformatted number here -->
+      <div id="donationTotal" class="donation-total">134568.89</div>
 
-    <div class="donation-sub">Updated automatically</div>
+      <div class="donation-sub">Updated automatically</div>
+    </div>
   </div>
 
   <script>
-    // Format with commas
-    const rawNumber = parseFloat(document.getElementById("donationTotal").textContent);
-    document.getElementById("donationTotal").textContent =
-      '$' + rawNumber.toLocaleString('en-US');
+    const el = document.getElementById("donationTotal");
+    const raw = parseFloat(el.textContent);
+    el.textContent = '$' + raw.toLocaleString('en-US');
   </script>
 
 </body>
