@@ -27,19 +27,19 @@
     }
 
     .donation-label {
-      font-size: 0.92rem;
+      font-size: 0.95rem;
       letter-spacing: 0.6px;
       color: #7A1CAC;
-      font-weight: 600;
+      font-weight: 700;
       text-transform: uppercase;
       margin-bottom: 14px;
     }
 
     .donation-total {
-      font-size: 3rem;
-      font-weight: 700;
+      font-size: 3.4rem;        /* larger */
+      font-weight: 900;         /* bolder */
       color: #1e1e1e;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       line-height: 1.1;
     }
 
@@ -55,11 +55,18 @@
   <div class="donation-card">
     <div class="donation-label">Total Raised</div>
 
-    <!-- Make will insert the formatted number here -->
-    <div class="donation-total">$ 134568.89</div>
+    <!-- Make inserts the raw number here -->
+    <div id="donationTotal" class="donation-total">134568.89</div>
 
     <div class="donation-sub">Updated automatically</div>
   </div>
+
+  <script>
+    // Format with commas
+    const rawNumber = parseFloat(document.getElementById("donationTotal").textContent);
+    document.getElementById("donationTotal").textContent =
+      '$' + rawNumber.toLocaleString('en-US');
+  </script>
 
 </body>
 </html>
